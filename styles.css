@@ -15,8 +15,9 @@ body {
     margin-top: 2%;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: #f2f2f2; 
+    background-color: black;
     border-radius: 10px 10px 10px 10px;
+    border: 10px solid black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
@@ -28,9 +29,42 @@ button {
     border: none; 
     border-radius: 5px; 
     cursor: pointer; 
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
+    flex: 1;
+    margin: 0 2px;
 }
 
 button:hover {
-    background-color: #45a049; 
+    opacity: 0.8; /* Reduce opacity when hovered */
+}
+
+#display {
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: #cccccc; /* Grey color */
+}
+
+#firstRow, #secondRow, #thirdRow, #fourthRow {
+    padding-top: 5px;
+    display: flex;
+    width: 100%;
+}
+#fifthRow {
+    padding-top: 5px;
+    display: flex;
+    width: 100%;
+
+}
+
+#equalButton {
+    flex-grow: 1;
+    background-color: red;
+}
+
+.operator {
+    background-color: #3f51b5;
+}
+
+.topBtn {
+    background-color: #ff9800;
 }
