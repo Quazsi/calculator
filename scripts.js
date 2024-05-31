@@ -48,11 +48,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const target = event.target;
         if (target.classList.contains("digit")) {
             handleDigitButtonClick(target.textContent);
+        } else if (target.id === "clearButton") {
+            handleClearButtonClick();
         }
     });
     
     function handleDigitButtonClick(value) {
         console.log("Digit button clicked:", value);
         display.textContent += value;
+    }
+
+    function handleClearButtonClick(value) {
+        console.log("Clear button clicked");
+        display.textContent = "";
     }
 });
