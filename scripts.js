@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
             handlePostiveNegativeClick();
         } else if (target.id === "percent") {
             handlePercentClick();
+        } else if (target.id === "decimal") {
+            handleDecimalClick();
         }
     });
     
@@ -106,6 +108,13 @@ document.addEventListener("DOMContentLoaded", function() {
             numerator = Number(display.textContent);
             percent = numerator / 100;
             display.textContent = percent;
+        }
+    }
+
+    function handleDecimalClick() {
+        if(!display.textContent.includes(".")){
+            let old = display.textContent;
+            display.textContent = old + ".";
         }
     }
 });
