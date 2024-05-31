@@ -102,6 +102,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function handlePercentClick() {
-
+        if(display.textContent) {
+            numerator = Number(display.textContent);
+            percent = numerator / 100;
+            display.textContent = percent;
+        }
     }
 });
