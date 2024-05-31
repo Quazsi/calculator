@@ -1,5 +1,5 @@
 function add(num1, num2) {
-    return num1 + num2;
+    return Number(num1) + Number(num2);
 }
 
 function subtract(num1, num2) {
@@ -14,35 +14,33 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
-let num1;
-let num2;
-let operator;
 
-function operate(num1, operator, num2){
+function operate(number1, operator, number2){
     switch (operator) {
         case "+":
-            return add(num1,num2);
+            return add(number1,number2);
         
         case "-":
-            return subtract(num1, num2);
+            return subtract(number1, number2);
         
         case "*":
-            return multiply(num1, num2);
+            return multiply(number1, number2);
         
         case "/":
-            return divide(num1, num2);
+            return divide(number1, number2);
         
-        default:
-            break;
     }
 }
 
 const display = document.querySelector("#display");
-display.textContent = "007"
 
 document.addEventListener("DOMContentLoaded", function() {
     const content = document.getElementById("content");
     const display = document.getElementById("display");
+
+    let num1;
+    let num2;
+    let operator;
 
     content.addEventListener("click", function(event) {
         const target = event.target;
@@ -50,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function() {
             handleDigitButtonClick(target.textContent);
         } else if (target.id === "clearButton") {
             handleClearButtonClick();
+        } else if (target.classList.contains("operator")) {
+            handleOperatorClick(target.textContent);
+        } else if (target.id === "equalButton") {
+            handleEqualsClick();
         }
     });
     
@@ -58,8 +60,27 @@ document.addEventListener("DOMContentLoaded", function() {
         display.textContent += value;
     }
 
-    function handleClearButtonClick(value) {
+    function handleClearButtonClick() {
         console.log("Clear button clicked");
         display.textContent = "";
+    }
+
+    function handleOperatorClick(selectedOperator) {
+        console.log("Operator button clicked: ", selectedOperator);
+        num1 = display.textContent;
+        operator = selectedOperator;
+        display.textContent = "";
+        console.log("Num1 is equal to: ", num1);
+    }
+
+    function handleEqualsClick() {
+        console.log("Equals Button clicked");
+        num2 = display.textContent;
+        if(num1 && operator && num2) {
+            console.log(num1, operator, num2);
+            answer = operate(num1, operator, num2)
+            console.log(answer);
+            display.textContent = answer;
+        }
     }
 });
