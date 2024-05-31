@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function() {
     function handleClearButtonClick() {
         console.log("Clear button clicked");
         display.textContent = "";
+        num1 = "";
+        num2 = "";
+        operator = "";
     }
 
     function handleOperatorClick(selectedOperator) {
@@ -81,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function() {
             answer = operate(num1, operator, num2)
             console.log(answer);
             display.textContent = answer;
+            
         }
     }
+
 });
