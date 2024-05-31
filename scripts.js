@@ -52,6 +52,10 @@ document.addEventListener("DOMContentLoaded", function() {
             handleOperatorClick(target.textContent);
         } else if (target.id === "equalButton") {
             handleEqualsClick();
+        } else if (target.id === "postiveNegative") {
+            handlePostiveNegativeClick();
+        } else if (target.id === "percent") {
+            handlePercentClick();
         }
     });
     
@@ -88,4 +92,16 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    function handlePostiveNegativeClick() {
+        if (display.textContent.startsWith("-")) {
+            display.textContent = display.textContent.replace('-', '');
+        } else {
+            let old = display.textContent;
+            display.textContent = "-" + old;
+        }
+    }
+
+    function handlePercentClick() {
+
+    }
 });
